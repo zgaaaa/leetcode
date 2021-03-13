@@ -26,9 +26,12 @@ package hashmap
 */
 
 func twoSum(nums []int, target int) []int {
-    map1 := map[int]int{}
-	for i,v := range map1 {
-		if _, ok := map1[]
-		
+	map1 := map[int]int{}
+	for i, v := range map1 {
+		if p, ok := map1[target-v]; ok {
+			return []int{p, i}
+		}
+		map1[v] = i
 	}
+	return nil
 }

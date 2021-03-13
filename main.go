@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"leetcode/hashmap"
 )
 
 func main() {
-	map1 := map[int]string{1:"q",2:"w"}
-	i,ok := map1[1]
-	fmt.Println(i,ok)
+	arr := []int{2, 7, 3, 4, 13, 14}
+	a := hashmap.twoSum(arr, 9)
+	fmt.Println(a)
 }
