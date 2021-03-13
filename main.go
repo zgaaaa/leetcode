@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	arr := []int{2, 7, 3, 4, 13, 14}
-	a := hashmap.TwoSum(arr, 9)
+	s := "leetcode"
+	a := hashmap.FirstUniqChar(s)
 	fmt.Println(a)
 }
