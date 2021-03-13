@@ -25,12 +25,16 @@ package hashmap
 等待扫到“另一半”数字的时候，再取出来返回结果。
 */
 
-func twoSum(nums []int, target int) []int {
+func TwoSum(nums []int, target int) []int {
 	map1 := map[int]int{}
-	for i, v := range map1 {
-		if p, ok := map1[target-v]; ok {
+	// 遍历nums
+	for i, v := range nums {
+		a := target - v
+		//如果map1中存在a,则返回下标
+		if p, ok := map1[a]; ok {
 			return []int{p, i}
 		}
+		//如果不存在,就将数保存在map1中
 		map1[v] = i
 	}
 	return nil
