@@ -14,7 +14,22 @@ package link
 // }
 
 func ReverseList(head *ListNode) *ListNode {
-	 := new(ListNode)
-	
-
+	// 后指针
+	var rear *ListNode
+	// 错误写法
+	// rear := new(ListNode)
+	// 因为new初始化会默认为零值,所以反转后的链表末尾会多出一个零
+	// 前指针
+	front := head
+	for front != nil {
+		// 中间变量
+		next := front.Next
+		// 反转,前指针指向后指针
+		front.Next = rear
+		// 后指针前移
+		rear= front
+		// 前指针前移
+		front = next
+	}
+	return rear
 }
