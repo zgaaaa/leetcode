@@ -30,6 +30,8 @@ func ReverseList(head *ListNode) *ListNode {
 		rear= front
 		// 前指针前移
 		front = next
+		// 以上代码go语言支持更简便写法
+		// front, rear, front.Next = front.Next, front, rear 
 	}
 	return rear
 }
