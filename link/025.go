@@ -63,7 +63,8 @@ func ReverseKGroup(head *ListNode, k int) *ListNode {
 }
 
 // 反转函数
-func reserve(head, tail *ListNode) (*ListNode,*ListNode) {
+func reserve(head, tail *ListNode) (*ListNode, *ListNode) {
+	// 反转技巧:head和tail不参与运算,
 	p := new(ListNode)
 	p.Next = head
 	h := head
@@ -73,5 +74,5 @@ func reserve(head, tail *ListNode) (*ListNode,*ListNode) {
 		p = h
 		h = nex
 	}
-	return tail,head
+	return tail, head
 }
