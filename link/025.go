@@ -1,6 +1,5 @@
 package link
 
-
 /*
 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
 k 是一个正整数，它的值小于或等于链表的长度。
@@ -28,6 +27,51 @@ k 是一个正整数，它的值小于或等于链表的长度。
 //    Next *ListNode
 // }
 
-func reverseKGroup(head *ListNode, k int) *ListNode {
-	
+func ReverseKGroup(head *ListNode, k int) *ListNode {
+	// 用于返回
+	result := &ListNode{Next: head}
+	// 用于运算
+	pre := result
+	// 退出条件有两个,head是最后一个节点,及下面的剩余节点数不够一组
+	for head != nil {
+		// 分组,tail表示一组中的最后一个
+		tail := pre
+		for i := 0; i < k; i++ {
+			tail = tail.Next
+			if tail == nil {
+				return result.Next
+			}
+		}
+		// 主要的运算代码
+		// 1.首先是提前标记好head的前一个节点和tail的后一个节点,因为连接的时候需要
+		// 2.然后反转
+		// 3.反转后的链表与最初始的链表连接
+		// 4.head和pre向前移动
+
+		// 标记tail的后一个节点
+		nex := tail.Next
+		// 反转
+		head, tail = reserve(head, tail)
+		// 连接
+		pre.Next = head
+		tail.Next = nex
+		// pre节点和head节点向前移动
+		pre = tail
+		head = tail.Next
+	}
+	return result.Next
+}
+
+// 反转函数
+func reserve(head, tail *ListNode) (*ListNode,*ListNode) {
+	p := new(ListNode)
+	p.Next = head
+	h := head
+	for p != tail {
+		nex := h.Next
+		h.Next = p
+		p = h
+		h = nex
+	}
+	return tail,head
 }

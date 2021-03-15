@@ -48,7 +48,6 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		temp/=10
 		// list指向下一个节点
 		list = list.Next
-
 	}
 	return result.Next
 }
