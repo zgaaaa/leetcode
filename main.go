@@ -1,12 +1,13 @@
 package main
 
 import (
-	"LeetCode/hashmap"
+	"LeetCode/array"
 	"fmt"
 )
 
 func main() {
-	s := "leetcode"
-	a := hashmap.FirstUniqChar(s)
+	str := "PAYPALISHIRING"
+	num := 3
+	a := array.Convert(str, num)
 	fmt.Println(a)
 }
