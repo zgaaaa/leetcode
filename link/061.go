@@ -41,9 +41,12 @@ func RotateRight(head *ListNode, k int) *ListNode {
 	tail.Next = head
 	// 计算
 
-	// k有可能大于n,所以对取余数
-	k %= n
 	// head和tail向前移动n-k
+	//  n =    4 4 4 4
+	//  k =    1 2 4 5
+	// head移动 3 2 0 1
+	// 通过上表可以找到规律
+	k %= n
 	for i := 1; i <= n-k; i++ {
 		tail = head
 		head = head.Next
