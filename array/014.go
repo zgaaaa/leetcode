@@ -25,7 +25,7 @@ func LongestCommonPrefix(strs []string) string {
 		for i := 1; i < len(strs); i++ {
 			// 边界条件,
 			// 1.由于外层循环是按照第0个字符串的长度遍历的,有可能后面的字符串没有第0个字符串长
-			// 2.当第i个字符串的第j个字符与第0个字符串的第j个字符不相等的时候	
+			// 2.当第i个字符串的第j个字符与第0个字符串的第j个字符不相等的时候
 			// 注意:需要先判断字符串长度再判断字符,否则会越界
 			if j == len(strs[i]) || strs[i][j] != strs[0][j] {
 				return strs[0][:j]
