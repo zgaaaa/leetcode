@@ -20,7 +20,7 @@ import "sort"
 输出：[]
 */
 
-func threeSum(nums []int) [][]int {
+func ThreeSum(nums []int) [][]int {
 	// 先排序
 	sort.Ints(nums)
 	res := [][]int{}
