@@ -23,7 +23,7 @@ import "sort"
 如果 nums2 的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
 */
 
-func intersect(nums1 []int, nums2 []int) []int {
+func Intersect(nums1 []int, nums2 []int) []int {
 	// 排序
 	sort.Ints(nums1)
 	sort.Ints(nums2)
