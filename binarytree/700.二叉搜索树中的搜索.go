@@ -15,7 +15,7 @@ package binarytree
  *     Right *TreeNode
  * }
  */
-func searchBST(root *TreeNode, val int) *TreeNode {
+func SearchBST(root *TreeNode, val int) *TreeNode {
 	for root != nil {
 		if root.Val == val {
 			return root
