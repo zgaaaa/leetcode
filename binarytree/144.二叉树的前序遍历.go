@@ -1,3 +1,4 @@
+package binarytree
 /*
  * @lc app=leetcode.cn id=144 lang=golang
  *
@@ -13,7 +14,7 @@
  *     Right *TreeNode
  * }
  */
-func preorderTraversal(root *TreeNode) []int {
+func PreorderTraversal(root *TreeNode) []int {
 	res := []int{}
 	if root == nil {
 		return res
