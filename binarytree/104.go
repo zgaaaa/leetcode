@@ -29,7 +29,7 @@ func MaxDepth(root *TreeNode) int {
 	var queue []*TreeNode
 	// 直接将根节点放入队列
 	queue = append(queue,root)
-	// 深度
+	// depth深度
 	depth := 0
 	// 当队列不为空时循环以下操作
 	for len(queue) > 0 {
