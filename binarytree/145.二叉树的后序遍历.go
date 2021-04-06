@@ -13,7 +13,7 @@ func PostorderTraversal(root *TreeNode) []int {
 	// 栈
 	stark := []*TreeNode{root}
 	// 存储节点
-	mapnode := make(map[*TreeNode]int)
+	mapnode := make(map[*TreeNode]bool)
 	for len(stark) != 0 {
 		// 出栈
 		top := len(stark) - 1
@@ -22,8 +22,8 @@ func PostorderTraversal(root *TreeNode) []int {
 		// 如果节点已经被遍历过,直接打印
 		if _, ok := mapnode[root]; ok {
 			res = append(res, root.Val)
-		// 如果是第一次出现,则将当前节点,右子节点及左子节点入栈
-		}else {
+			// 如果是第一次出现,则将当前节点,右子节点及左子节点入栈
+		} else {
 			stark = append(stark, root)
 			if root.Right != nil {
 				stark = append(stark, root.Right)
@@ -32,7 +32,7 @@ func PostorderTraversal(root *TreeNode) []int {
 				stark = append(stark, root.Left)
 			}
 			// 将当前节点加入map
-			mapnode[root] = 1
+			mapnode[root] = true
 		}
 	}
 	return res
@@ -50,5 +50,5 @@ func PostorderTraversal2(root *TreeNode) (res []int) {
 		res = append(res, root.Val)
 	}
 	recursion(root)
-	return 
+	return
 }
