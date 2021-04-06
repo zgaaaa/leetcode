@@ -16,6 +16,7 @@ package binarytree
    15   7
 */
 
+// 递归法:
 func BuildTree(preorder []int, inorder []int) *TreeNode {
 	// 当数组长度为零的时候跳出递归
 	if len(preorder) == 0 {
