@@ -1,7 +1,5 @@
 package binarytree
 
-import "math"
-
 /*
 给定一个二叉树，判断它是否是高度平衡的二叉树。
 
@@ -11,24 +9,33 @@ import "math"
 */
 
 func IsBalanced(root *TreeNode) bool {
-   return height(root) >= 0
+	temp := true
+	height(root, &temp)
+	return temp
 }
-
-func height(root *TreeNode) int{
-    if nil==root{
-        return 0
-    }
-    left:=height(root.Left)
-    if left==-1 {
-        return -1
-    }
-    right:=height(root.Right)
-    if right == -1{
-        return -1
-    } 
-    if math.Abs(float64(left)-float64(right))>1{
-        return -1
-    }else{
-        return int(math.Max(float64(left),float64(right)))+1
-    }
+// 递归函数
+func height(root *TreeNode, temp *bool) int {
+	if root == nil {
+		return 0
+	}
+	l := height(root.Left, temp)
+	r := height(root.Right, temp)
+    // 如果左右子树的深度的绝对值大于1,则temp为false
+	if abs(l, r) > 1 {
+		*temp = false
+	}
+    // 返回深度
+	return max(l, r) + 1
+}
+func abs(a, b int) int {
+	if a-b < 0 {
+		return b - a
+	}
+	return a - b
+}
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
