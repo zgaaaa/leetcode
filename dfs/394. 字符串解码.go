@@ -29,27 +29,32 @@ import (
 输出："abccdcdcdxyz"
 */
 
-func decodeString(s string) string {
+func DecodeString(s string) string {
 	nstark := []int{}
 	stark := []string{}
 	num := 0
 	str := ""
+	// 遍历字符串
 	for i := 0; i < len(s); i++ {
 		switch {
-		case s[i] >= '0' && s[i] >= 9:
+		// 当遇到数字算出需要倍数
+		case s[i] >= '0' && s[i] <= '9':
 			n, _ := strconv.Atoi(string(s[i]))
 			num = num*10 + n
+			// 遇到'['倍数和字符入栈
 		case s[i] == '[':
 			nstark = append(nstark, num)
 			num = 0
 			stark = append(stark, str)
 			str = ""
+			// 遇到']'栈顶的倍数和字符出栈拼接字符串
 		case s[i] == ']':
 			ntop := nstark[len(nstark)-1]
 			nstark = nstark[:len(nstark)-1]
 			stop := stark[len(stark)-1]
 			stark = stark[:len(stark)-1]
 			str = stop + strings.Repeat(str, ntop)
+			// 遇到字符
 		default:
 			str += string(s[i])
 		}
