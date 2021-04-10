@@ -1,6 +1,7 @@
 package dfs
 
 import (
+	"container/list"
 	"strconv"
 	"strings"
 )
@@ -60,4 +61,30 @@ func DecodeString(s string) string {
 		}
 	}
 	return str
+}
+
+// list库改写
+func DecodeString2(s string) string {
+	type pair struct {
+		bs  int
+		str string
+	}
+	stark := list.New()
+	num, res := 0, ""
+	for i := 0; i < len(s); i++ {
+		switch {
+		case s[i] >= '0' && s[i] <= '9':
+			num = num*10 + int(s[i]-'0')
+		case s[i] == '[':
+			stark.PushBack(pair{num, res})
+			num, res = 0, ""
+		case s[i] == ']':
+			top := stark.Back().Value.(pair)
+			stark.Remove(stark.Back())
+			res = top.str + strings.Repeat(res, top.bs)
+		default:
+			res += string(s[i])
+		}
+	}
+	return res
 }
