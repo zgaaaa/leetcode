@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	s := []int{5,7,7,8,8,10}
-	n := 8
-	b := binarysearch.SearchRange(s,n)
+	n1 := []int{11,13,15,17}
+
+	b := binarysearch.FindMin(n1)
 	fmt.Println(b)
 
 }
