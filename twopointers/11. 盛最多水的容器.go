@@ -23,7 +23,7 @@ package twopointers
 输出：2
 */
 
-func maxArea(height []int) int {
+func MaxArea(height []int) int {
 	l, r, res := 0, len(height)-1, 0
 	for l < r {
 		if height[l] < height[r] {
