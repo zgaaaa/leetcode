@@ -15,7 +15,7 @@ package twopointers
 */
 
 // 双指针法:
-func strStr(haystack string, needle string) int {
+func StrStr(haystack string, needle string) int {
 	if len(needle) == 0 {
 		return 0
 	}
@@ -47,7 +47,7 @@ func strStr(haystack string, needle string) int {
 }
 
 // 双指针
-func strStr2(haystack, needle string) int {
+func StrStr2(haystack, needle string) int {
 	if haystack == "" {
 		return 0
 	}
