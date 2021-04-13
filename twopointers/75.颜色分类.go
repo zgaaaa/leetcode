@@ -23,10 +23,12 @@ package twopointers
 */
 
 func SortColors(nums []int) {
-	l, p, r := 0, 0, len(nums)-1
+	l, p, r := 0, 0, len(nums)-1 //三指针
 	for p <= r {
-		if nums[p] == 2 {
+		if nums[p] == 2 { 
+			// 当p指针指向的元素为2时,和r指针互换
 			nums[r], nums[p] = nums[p], nums[r]
+			// 只对r指针减一,不对p指针加一,因为如果r指针为0时,会漏掉一个0
 			r--
 		} else if nums[p] == 0 {
 			nums[l], nums[p] = nums[p], nums[l]

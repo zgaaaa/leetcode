@@ -1,14 +1,11 @@
 package main
 
 import (
-	"LeetCode/binarysearch"
-	"fmt"
+	"LeetCode/twopointers"
 )
 
 func main() {
-	n1 := []int{11,13,15,17}
-
-	b := binarysearch.FindMin(n1)
-	fmt.Println(b)
+	s := []int{1, 2, 0}
+	twopointers.SortColors(s)
 
 }
