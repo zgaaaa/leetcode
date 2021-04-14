@@ -45,7 +45,6 @@ func ThreeSum(nums []int) [][]int {
 		for r > l {
 			// 求和
 			sum := v + nums[l] + nums[r]
-
 			switch {
 			case sum == 0:
 				// 保存结果
