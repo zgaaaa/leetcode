@@ -24,7 +24,7 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 XCI等于1+100-10
 */
 
-func romanToInt(s string) int {
+func RomanToInt(s string) int {
 	m := map[byte]int{
 		'I': 1,
 		'V': 5,
@@ -35,7 +35,7 @@ func romanToInt(s string) int {
 		'M': 1000,
 	}
 	// 从右往左遍历，当前的字符大于等于上一个字符，则累加； 否则累减
-	res,tmp := 0, 0
+	res, tmp := 0, 0
 	for i := len(s) - 1; i >= 0; i-- {
 		num := m[s[i]]
 		if tmp <= num {
