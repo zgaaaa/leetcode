@@ -42,9 +42,9 @@ func MyAtoi(s string) int {
 			return min
 		}
 	}
-	return num
+	return sign*num
 }
-// 修剪字符串,返回符号和存数字
+// 修剪字符串,返回符号和纯数字
 func clean(s string) (sign int, abs string) {
 	s = strings.TrimSpace(s) // 首先去括号
 	if s == "" { 
