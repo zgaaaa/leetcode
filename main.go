@@ -1,11 +1,10 @@
 package main
 
 import (
-	"LeetCode/twopointers"
+	"LeetCode/string"
+	"fmt"
 )
 
 func main() {
-	s := []int{1, 2, 0}
-	twopointers.SortColors(s)
-
+	fmt.Println(string.GenerateParenthesis(2))
 }
