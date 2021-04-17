@@ -54,7 +54,7 @@ func BufCompressString(S string) string {
 		res.WriteByte(S[i])
 		res.WriteString(strconv.Itoa(count))
 		// 如果当前长度大于原字符串长的就不需要继续运算了,直接返回
-		if slen <= len(res.String()) {
+		if slen <= res.Len() {
 			return S
 		}
 	}

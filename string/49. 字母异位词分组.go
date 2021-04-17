@@ -19,17 +19,18 @@ import "sort"
 不考虑答案输出的顺序。
 */
 
-func groupAnagrams(strs []string) [][]string {
-	result := make([][]string, 0, len(strs))
-	status := make(map[string][]string, len(strs))
+func GroupAnagrams(strs []string) [][]string {
+	res := [][]string{}
+	m := make(map[string][]string, len(strs))
 	for _, v := range strs {
 		s := []byte(v)
-		sort.Slice(s, func(i, j int) bool { return s[i] < s[j] })
-		key := string(s)
-		status[key] = append(status[key], v)
+		sort.Slice(s, func(i, j int) bool { return s[i] < s[j] }) // 排序
+		key := string(s) // 异位词排序后一定是相同的
+		// map的键是排序后的字符串,值是字符串切片,用于存储分组
+		m[key] = append(m[key], v)
 	}
-	for _, v := range status {
-		result = append(result, v)
+	for _, v := range m {
+		res = append(res, v)
 	}
-	return result
+	return res
 }
