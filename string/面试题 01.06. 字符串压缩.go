@@ -1,6 +1,9 @@
 package string
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 /*
 字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。
@@ -19,20 +22,23 @@ import "strconv"
 
 func CompressString(S string) string {
 	slen := len(S)
-	res := make([]byte,0,slen)
+	// res := make([]byte,0,slen)
+	var res strings.Builder
 	for i := 0; i < slen; i++ {
 		count := 1 // 计数器
 		for i+1 < slen && S[i] == S[i+1] {
 			count++ // 当前字符和下一个字符相同时计数器加一
-			i++ // 下标同时移动
+			i++     // 下标同时移动
 		}
 		// 字符串拼接
-		res = append(res, S[i])
-		res = append(res, []byte(strconv.Itoa(count))...)
+		// res = append(res, S[i])
+		// res = append(res, []byte(strconv.Itoa(count))...)
+		res.WriteByte(S[i])
+		res.WriteString(strconv.Itoa(count))
 		// 如果当前长度大于原字符串长的就不需要继续运算了,直接返回
-		if slen <= len(res) {
+		if slen <= len(res.String()) {
 			return S
 		}
 	}
-	return string(res)
+	return string(res.String())
 }
