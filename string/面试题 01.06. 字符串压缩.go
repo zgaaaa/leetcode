@@ -17,7 +17,7 @@ import "strconv"
  解释："abbccd"压缩后为"a1b2c2d1"，比原字符串长度更长。
 */
 
-func compressString(S string) string {
+func CompressString(S string) string {
 	slen := len(S)
 	res := make([]byte,0,slen)
 	for i := 0; i < slen; i++ {
