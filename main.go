@@ -6,5 +6,8 @@ import (
 )
 
 func main() {
-	fmt.Println(string.GenerateParenthesis(2))
+	a := "1010"
+	b := "1111"
+	c := string.AddBinary(a, b)
+	fmt.Println(c)
 }
