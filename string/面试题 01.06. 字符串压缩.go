@@ -22,7 +22,27 @@ import (
 
 func CompressString(S string) string {
 	slen := len(S)
-	// res := make([]byte,0,slen)
+	res := make([]byte, 0, slen)
+	for i := 0; i < slen; i++ {
+		count := 1 // 计数器
+		for i+1 < slen && S[i] == S[i+1] {
+			count++ // 当前字符和下一个字符相同时计数器加一
+			i++     // 下标同时移动
+		}
+		// 字符串拼接
+		res = append(res, S[i])
+		res = append(res, []byte(strconv.Itoa(count))...)
+		// 如果当前长度大于原字符串长的就不需要继续运算了,直接返回
+		if slen <= len(res) {
+			return S
+		}
+	}
+	return string(res)
+}
+
+// strings.Builder改写
+func BufCompressString(S string) string {
+	slen := len(S)
 	var res strings.Builder
 	for i := 0; i < slen; i++ {
 		count := 1 // 计数器
@@ -31,8 +51,6 @@ func CompressString(S string) string {
 			i++     // 下标同时移动
 		}
 		// 字符串拼接
-		// res = append(res, S[i])
-		// res = append(res, []byte(strconv.Itoa(count))...)
 		res.WriteByte(S[i])
 		res.WriteString(strconv.Itoa(count))
 		// 如果当前长度大于原字符串长的就不需要继续运算了,直接返回
