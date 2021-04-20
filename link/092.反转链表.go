@@ -13,7 +13,7 @@ package link
 输出：[5]
 */
 
-func reverseBetween(head *ListNode, left int, right int) *ListNode {
+func ReverseBetween(head *ListNode, left int, right int) *ListNode {
 	res := &ListNode{Next: head}
 	pre, tail := res, res
 	for i := 0; i < right; i++ {
