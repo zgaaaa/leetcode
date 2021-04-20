@@ -42,7 +42,7 @@ func (pri *PriorityHeap) Pop() interface{} {
 	return x
 }
 
-func mergeKLists(lists []*ListNode) *ListNode {
+func MergeKLists(lists []*ListNode) *ListNode {
 	if lists == nil {
 		return nil
 	}
