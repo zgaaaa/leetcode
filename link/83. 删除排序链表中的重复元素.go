@@ -13,7 +13,7 @@ package link
 输出：[1,2,3]
 */
 
-func deleteDuplicates(head *ListNode) *ListNode {
+func DeleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
