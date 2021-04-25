@@ -9,18 +9,41 @@ import "sort"
 // 输入：nums = [-1,0,1,2,-1,-4]
 // 输出：[[-1,-1,2],[-1,0,1]]
 
-
 func ThreeSum(nums []int) [][]int {
 	sort.Ints(nums)
 	res := [][]int{}
 	length := len(nums)
 	if length < 3 {
-		 return res
+		return res
 	}
 	for i, v := range nums {
 		if v > 0 {
 			return res
 		}
-		
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+		l, r := i+1, length-1
+		for l < r {
+			sum := v + nums[l] + nums[r]
+			switch {
+			case sum == 0:
+				res = append(res, []int{v, nums[l], nums[r]})
+				for r > l && nums[r] == nums[r-1] {
+					r--
+				}
+				for r > l && nums[l] == nums[l+1] {
+					l++
+				}
+				r--
+				l++
+			case sum < 0:
+				l++
+			case sum > 0:
+				r--
+			}
+
+		}
 	}
+	return res
 }
