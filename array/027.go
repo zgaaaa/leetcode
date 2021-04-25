@@ -34,3 +34,14 @@ func RemoveElement(nums []int, val int) int {
 	}
 	return i
 }
+// 方法二
+func RemoveElement2(nums []int, val int) int {
+	res := 0
+	for _, v := range nums {
+		if v != val {
+			nums[res] = v
+			res++
+		}
+	}
+	return res
+}
