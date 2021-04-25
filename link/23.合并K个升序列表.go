@@ -38,7 +38,7 @@ func (pri *PriorityHeap) Pop() interface{} {
 	old := *pri
 	n := len(old)
 	x := old[n-1]
-	*pri = old[0 : n-1]
+	*pri = old[: n-1]
 	return x
 }
 
