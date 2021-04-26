@@ -1,12 +1,12 @@
 package main
 
 import (
-	"LeetCode/array2"
+	"LeetCode/slidingwindow"
 	"fmt"
 )
 
 func main() {
-	nums := []int{7, 1, 5, 3, 6, 4}
+	nums := []int{7,2,4}
 
-	fmt.Println(array2.MaxProfit(nums))
+	fmt.Println(slidingwindow.MaxSlidingWindow(nums, 2))
 }
